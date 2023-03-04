@@ -16,6 +16,7 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        style="@style/Theme.FairWeatherApp.TextStyle"
         tools:text="Toronto" />
 
     <ImageView
@@ -34,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_small"
-        android:textColor="@color/black"
+        style="@style/Theme.FairWeatherApp.TextStyle"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/sate_image"
@@ -46,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_medium"
-        android:textColor="@color/black"
+        style="@style/Theme.FairWeatherApp.TextStyle"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_small"
         android:layout_marginTop="@dimen/margin_medium"
-        android:textColor="@color/black"
+        style="@style/Theme.FairWeatherApp.TextStyle"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +84,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="18sp"
         android:text="@string/something_went_wrong"
-        android:textColor="@color/black"
+        style="@style/Theme.FairWeatherApp.TextStyle"
         tools:text="@string/something_went_wrong" />
 
     <Button

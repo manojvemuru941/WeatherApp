@@ -1,8 +1,8 @@
-package com.fair.weather
+package com.fair.weather.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.fair.weather.ui.main.MainFragment
+import com.fair.weather.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

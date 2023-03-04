@@ -1,4 +1,4 @@
-package com.fair.weather.ui.main.ext
+package com.fair.weather.ui.main.model
 
 data class WeatherData(
     val cityName: String,

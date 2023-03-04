@@ -9,8 +9,6 @@ import org.junit.Test
 import org.mockito.Mockito.mock
 import org.mockito.kotlin.whenever
 
-private const val CITY_NAME = "city_name_test"
-
 class WeatherRepositoryTest {
 
     private lateinit var weatherAPI: WeatherAPI
@@ -25,10 +23,10 @@ class WeatherRepositoryTest {
     @Test
     fun `fetch weather data main test`() {
         runBlocking {
-            whenever(weatherAPI.getWeatherByCode(cityCode = CITY_NAME)).thenReturn(TestConstants.testWeatherData)
-            val weatherData = weatherRepository.getWeatherByCity(cityName = CITY_NAME)
+            whenever(weatherAPI.getWeatherByCode(cityCode = TestData.CITY_NAME)).thenReturn(TestData.testWeatherData)
+            val weatherData = weatherRepository.getWeatherByCity(cityName = TestData.CITY_NAME)
             weatherData.collect {
-                assertTrue(it.listConsolidatedWeather[0].theTemp == TestConstants.testWeatherData.listConsolidatedWeather[0].theTemp)
+                assertTrue(it.listConsolidatedWeather[0].theTemp == TestData.testWeatherData.listConsolidatedWeather[0].theTemp)
             }
         }
     }
@@ -36,8 +34,8 @@ class WeatherRepositoryTest {
     @Test
     fun `fetch weather data test`() {
         runBlocking {
-            whenever(weatherAPI.getWeatherByCode(cityCode = CITY_NAME)).thenReturn(TestConstants.testWeatherData)
-            val weatherData = weatherRepository.getWeatherByCity(cityName = CITY_NAME)
+            whenever(weatherAPI.getWeatherByCode(cityCode = TestData.CITY_NAME)).thenReturn(TestData.testWeatherData)
+            val weatherData = weatherRepository.getWeatherByCity(cityName = TestData.CITY_NAME)
             weatherData.collect {
                 assertTrue(it.listConsolidatedWeather.isNotEmpty())
             }

@@ -1,7 +1,7 @@
 package com.fair.weather.models
 
 import com.fair.weather.core.AppConstants
-import com.fair.weather.ui.main.ext.WeatherData
+import com.fair.weather.ui.main.model.WeatherData
 import com.google.gson.annotations.SerializedName
 
 data class ConsolidatedWeatherResponse(
@@ -14,7 +14,7 @@ data class ConsolidatedWeatherResponse(
 
 
 fun ConsolidatedWeatherResponse.toUIData(): WeatherData {
-    val todayWeather = listConsolidatedWeather[0]
+    val todayWeather = listConsolidatedWeather.first()
     return WeatherData(
         cityName = this.city,
         currentTemp = todayWeather.theTemp.toInt(),

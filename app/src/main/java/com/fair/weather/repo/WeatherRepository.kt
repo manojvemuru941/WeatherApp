@@ -10,7 +10,7 @@ import javax.inject.Inject
 class WeatherRepository @Inject constructor(private var weatherAPI: WeatherAPI) {
 
     /**
-     * TODO
+     * Action func to generate weather API data
      *
      * @param cityName
      * @return

@@ -2,7 +2,7 @@ package com.fair.weather.usecase
 
 import com.fair.weather.models.toUIData
 import com.fair.weather.repo.WeatherRepository
-import com.fair.weather.ui.main.ext.WeatherData
+import com.fair.weather.ui.main.model.WeatherData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -12,7 +12,7 @@ class CityWeatherUseCase @Inject constructor(
 ) {
 
     /**
-     * Action func to generate
+     * Action func to generate weather API data
      *
      * @param cityName
      * @return
