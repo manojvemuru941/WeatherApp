@@ -27,7 +27,7 @@ A simple android weather forecast demo that demonstrates Current, Lowest & Highe
 * Flows/Coroutines for asynchronous/synchronous tasks.
 * Hilt dependency injection.
 * Glide library to load image (Weather icons)
-* Junitn& Mockito for unit test.
+* Junit & Mockito for unit test.
 
 
 ###  Architecture pattern
