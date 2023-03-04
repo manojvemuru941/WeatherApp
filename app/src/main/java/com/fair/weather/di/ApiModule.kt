@@ -2,6 +2,7 @@ package com.fair.weather.di
 
 import com.fair.weather.api.WeatherAPI
 import com.fair.weather.core.AppConstants
+import com.fair.weather.core.NetworkStateProvider
 import com.fair.weather.utils.SupportInterceptor
 import com.google.gson.GsonBuilder
 import dagger.Module

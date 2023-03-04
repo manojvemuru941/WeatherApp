@@ -1,5 +1,6 @@
 package com.fair.weather.ui.main
 
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.fair.weather.state.UIState
@@ -7,6 +8,7 @@ import com.fair.weather.ui.main.ext.WeatherData
 import com.fair.weather.usecase.CityWeatherUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -29,7 +31,7 @@ class MainViewModel @Inject constructor(
      * TODO
      *
      */
-    private fun loadData() {
+    fun loadData() {
         viewModelScope.launch {
             cityWeatherUseCase.getAction(TORONTO_CODE)
                 .flowOn(Dispatchers.IO)

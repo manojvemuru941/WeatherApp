@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class CityWeatherUseCase @Inject constructor(
     private val repository: WeatherRepository
-) : BaseUseCase.ParamUseCase<String, Flow<WeatherData>> {
+) {
 
     /**
      * Action func to generate
@@ -17,9 +17,9 @@ class CityWeatherUseCase @Inject constructor(
      * @param cityName
      * @return
      */
-    override suspend fun getAction(cityName: String): Flow<WeatherData> {
-        return repository.getWeatherByCity(cityName).map {
-            it.toUIData()
+    suspend fun getAction(cityName: String): Flow<WeatherData> {
+        return repository.getWeatherByCity(cityName).map { weatherResponse ->
+            weatherResponse.toUIData()
         }
     }
 }

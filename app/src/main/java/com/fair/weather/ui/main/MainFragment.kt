@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -27,6 +27,10 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setCollectors()
+
+        fragmentMainBinding.tryAgainBtn.setOnClickListener{
+            viewModel.loadData()
+        }
     }
 
     private fun setCollectors() {
@@ -38,14 +42,15 @@ class MainFragment : Fragment() {
                         fragmentMainBinding.loading.show()
                     }
                     is UIState.Error -> {
-                        Toast.makeText(
-                            requireContext(),
-                            it.throwable.message ?: getString(R.string.something_went_wrong),
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        fragmentMainBinding.tempGroup.hide()
+                        fragmentMainBinding.emptyGroup.show()
+                        showErrorDialog(
+                            it.throwable.message ?: getString(R.string.something_went_wrong)
+                        )
                     }
                     is UIState.Success -> {
                         fragmentMainBinding.tempGroup.show()
+                        fragmentMainBinding.emptyGroup.hide()
                         fragmentMainBinding.weatherText.text = it.data.currentTemp.toString()
                         fragmentMainBinding.cityTitleTv.text = it.data.cityName
                         fragmentMainBinding.stateTv.text = it.data.state
@@ -63,6 +68,24 @@ class MainFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun showErrorDialog(err: String) {
+        val alertDialog: AlertDialog? = activity?.let {
+            val builder = AlertDialog.Builder(it)
+            builder.setMessage(err)
+            builder.apply {
+                setPositiveButton(
+                    R.string.ok
+                ) { _, _ ->
+                    // User clicked OK button
+                }
+            }
+
+            // Create the AlertDialog
+            builder.create()
+        }
+        alertDialog?.show()
     }
 
     override fun onCreateView(
