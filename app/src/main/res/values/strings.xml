@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FairWeatherApp</string>
+
+    <string name="something_went_wrong">Oops!! Something went wrong!!</string>
+    <string name="try_again">Please Try again</string>
+    <string name="ok">Okay</string>
+    <string name="no_internet">Lost network connection</string>
+    <string name="temperature">%s\u00B0</string>
+    <string name="low_high_temp">L:%s\u00B0 H:%s\u00B0</string>
+</resources>
